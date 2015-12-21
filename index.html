@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+  crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+  crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+  crossorigin="anonymous"></script>
+
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+  <!-- google chart -->
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  
+  <script src="timeline.js"></script>
+  <script src="areachart.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <!--
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><font color="green">CCC Grid Info</font></a>-->
+        <!--<img src="CA-CIB-logo1.gif" height="50"/>-->
+        <img src="./cacib.jpeg" height="50"/><font color="green"><b>CCC Grid Info</b></font>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#"><span class="glyphicon glyphicon-align-left"></span> Time line<span class="sr-only">(current)</span></a></li>
+          <li>
+            <a href="#"> <span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Servers usage</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Console CCC</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <!--<div class="panel-heading">
+          <h3 class="panel-title">Context</h3>
+        </div>-->
+        <div class="panel-body">
+
+          <form>
+            <div class="form-group">
+              <label for="Run">Run</label>
+              <select ng-model="run" class="form-control">
+                <option value="Q">Q</option>
+                <option value="M">M</option>
+                <option value="I">I</option>
+                <option value="J" selected>J</option>
+              </select>    
+            </div>
+            <div class="form-group">
+              <label for="Date">Date</label>
+              <select ng-model="date" class="form-control">
+                <option value="20151208">20151208</option>
+                <option value="20151207">20151207</option>
+                <option value="20151206">20151206</option>
+                <option value="20151205" selected>20151205</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <p class="help-block">Context : {{run}}{{date}}</p>
+            </div>
+            <button type="submit" ng-click="sub()" class="btn btn-default">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Time Line</h3>
+        </div>
+        <div class="panel-body">
+          <!--<div id="timeline" style="width: 900px; height: 500px;"></div>-->
+          <div id="chart_div" style="width: 900px; height: 500px;"></div>
+        </div>
+    </div>
+
+  <!--<script src="./controller.js"></script>-->
+  <script>
+    var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope) {
+        $scope.sub = function() {
+          $scope.run = 'O';
+        };
+      });
+</script>
+
+</body>
+
+</html>
