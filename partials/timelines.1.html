@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<form>
+					<div class="form-group">
+						<label for="Run">Run</label>
+						<select ng-model="run" class="form-control">
+							<option value="Q">Q</option>
+							<option value="M">M</option>
+							<option value="I">I</option>
+							<option value="J" selected>J</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="Date">Date</label>
+						<select ng-model="date" class="form-control">
+							<option value="20151208">20151208</option>
+							<option value="20151207">20151207</option>
+							<option value="20151206">20151206</option>
+							<option value="20151205" selected>20151205</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<p class="help-block">Context : {{run}}{{date}}</p>
+					</div>
+					<button type="submit" ng-click="sub()" class="btn btn-default">Submit</button>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-9">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Time Line</h3>
+			</div>
+			<div class="panel-body">
+				<div id="timeline" style="width: 900px; height: 500px;"></div>
+			</div>
+		</div>
+	</div>
+</div>
